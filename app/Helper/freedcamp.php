@@ -19,9 +19,10 @@ function sendFreedcampRequest($query, $path, $method = 'get', $data = [])
             ],
             'query' => $params,
         ]);
+        logger('Freedcamp tasks', [$params]);
 
         $response = $method === 'get' ? $response->get("{$host}{$path}") : $response->post("{$host}{$path}", $data);
-
+        logger('Freedcamp tasks', [$response]);
         $json_data = $response->json();
         if ($response->getStatusCode() === 200 && count($json_data['data']) > 0) {
             return $json_data;

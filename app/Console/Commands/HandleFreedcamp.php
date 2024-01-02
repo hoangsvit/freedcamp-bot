@@ -33,7 +33,7 @@ class HandleFreedcamp extends Command
             'filter' => [
                 'created_by_id' => config('app.freedcamp.created_by_id'),
                 'created_date' => [7],
-                'status_id' => [9683]
+                // 'status_id' => [9683]
             ],
             'sort' => ['priority' => 'asc'],
         ];
@@ -42,6 +42,7 @@ class HandleFreedcamp extends Command
 
         if ($response) {
             $tasks = $response['data']['tasks'];
+            logger('Freedcamp tasks', $tasks);
             foreach ($tasks as $task) {
                 if (!Str::of($task['title'])->startsWith('#')) {
                     $this->info("Processing task {$task['title']}");
