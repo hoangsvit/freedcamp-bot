@@ -26,9 +26,10 @@ jobs:
 
       - name: Run tests
         run: php artisan test
-          # - name: 'Create env file'
-          #   run: |
-          #       touch .env
-          #       echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
-          #       echo FREEDCAMP_API_KEY="${{ secrets.FREEDCAMP_API_KEY }}" >> .env
-          #       cat .env
+
+      - name: 'Create env file'
+        run: |
+            touch .env
+            echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
+            echo FREEDCAMP_API_KEY="${{ secrets.FREEDCAMP_API_KEY }}" >> .env
+            cat .env
