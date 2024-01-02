@@ -185,4 +185,17 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+     /*
+    |--------------------------------------------------------------------------
+    | Freedcamp
+    |--------------------------------------------------------------------------
+    */
+
+    'freedcamp' => [
+        'api_key' => env('FREEDCAMP_API_KEY'),
+        'api_secret' => env('FREEDCAMP_API_SECRET'),
+        'api_url' => env('FREEDCAMP_API_URL', 'https://freedcamp.com/api/v1/'),
+        'created_by_id' => [2112345],
+    ],
+
 ];
