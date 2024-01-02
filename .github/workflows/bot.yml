@@ -24,12 +24,12 @@ jobs:
           cp .env.example .env
           php artisan key:generate
 
-      - name: Run tests
-        run: php artisan test
-
       - name: 'Create env file'
         run: |
             touch .env
-            echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
             echo FREEDCAMP_API_KEY="${{ secrets.FREEDCAMP_API_KEY }}" >> .env
+            echo FREEDCAMP_API_SECRET="${{ secrets.FREEDCAMP_API_SECRET }}" >> .env
             cat .env
+
+      - name: Run tests
+        run: php artisan test
