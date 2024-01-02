@@ -13,7 +13,7 @@ class HandleFreedcamp extends Command
      *
      * @var string
      */
-    protected $signature = 'freedcamp';
+    protected $signature = 'handle:freedcamp';
 
     /**
      * The console command description.

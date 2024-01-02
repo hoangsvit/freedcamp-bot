@@ -32,4 +32,4 @@ jobs:
             cat .env
 
       - name: Run freedcamp
-        run: php artisan freedcamp
+        run: php artisan handle:freedcamp
