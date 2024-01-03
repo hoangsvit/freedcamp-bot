@@ -27,7 +27,7 @@ class HandleFreedcamp extends Command
      */
     public function handle()
     {
-        $params = json_encode(config('app.freedcamp.params'));
+        $params = json_decode(config('app.freedcamp.params'));
         $response = sendFreedcampRequest($params, 'tasks', 'get');
 
         if ($response) {
