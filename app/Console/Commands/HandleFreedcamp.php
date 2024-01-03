@@ -27,17 +27,7 @@ class HandleFreedcamp extends Command
      */
     public function handle()
     {
-        $params = [
-            'limit' => 200,
-            'offset' => 0,
-            'filter' => [
-                'created_by_id' => config('app.freedcamp.created_by_id'),
-                'created_date' => [7],
-                // 'status_id' => [9683]
-            ],
-            'sort' => ['priority' => 'asc'],
-        ];
-
+        $params = json_encode(config('app.freedcamp.params'));
         $response = sendFreedcampRequest($params, 'tasks', 'get');
 
         if ($response) {
