@@ -195,7 +195,7 @@ return [
         'api_key' => env('FREEDCAMP_API_KEY'),
         'api_secret' => env('FREEDCAMP_API_SECRET'),
         'api_url' => env('FREEDCAMP_API_URL', 'https://freedcamp.com/api/v1/'),
-        'params' =>  env('FREEDCAMP_PARAMS'),
+        'created_by_id' => env('FREEDCAMP_CREATED_BY_ID'),
     ],
 
 ];
