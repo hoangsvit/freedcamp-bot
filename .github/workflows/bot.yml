@@ -1,11 +1,10 @@
 name: Freedcamp Bot
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: "*/5 * * * *"
   push:
     branches:
-      - 'main'
-
+      - "main"
 jobs:
   make-bot:
     name: Install
@@ -16,7 +15,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.2'
+          php-version: "8.2"
           extensions: dom, curl, libxml, mbstring, zip, pcntl, bcmath, soap, intl, gd, exif, iconv
           coverage: none
 
@@ -28,11 +27,12 @@ jobs:
           cp .env.example .env
           php artisan key:generate
 
-      - name: 'Create env file'
+      - name: "Create env file"
         run: |
-            touch .env
-            echo FREEDCAMP_API_KEY="${{ secrets.FREEDCAMP_API_KEY }}" >> .env
-            echo FREEDCAMP_API_SECRET="${{ secrets.FREEDCAMP_API_SECRET }}" >> .env
+          touch .env
+          echo FREEDCAMP_API_KEY="${{ secrets.FREEDCAMP_API_KEY }}" >> .env
+          echo FREEDCAMP_API_SECRET="${{ secrets.FREEDCAMP_API_SECRET }}" >> .env
+          echo FREEDCAMP_PARAMS="${{ secrets.FREEDCAMP_PARAMS }}" >> .env
 
       - name: Run freedcamp
         run: php artisan handle:freedcamp

@@ -38,7 +38,8 @@ class HandleFreedcamp extends Command
 
                     $id = $task['id'];
                     $title = "#{$id} - {$task['title']}";
-                    $this->info("Processing task {$title}");
+
+                    $this->info("Processing task {$title} - {$task['url']}");
 
                     sendFreedcampRequest([], 'tasks/' . $id, 'post', ['title' => $title]);
                 }
