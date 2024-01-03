@@ -10,7 +10,7 @@ function sendFreedcampRequest($query, $path, $method = 'get', $data = [])
     $api_secret = config('app.freedcamp.api_secret');
     $timestamp = Carbon::now()->timestamp;
     $hash = hash_hmac('sha1', $api_key . $timestamp, $api_secret);
-    $params = array_merge(['api_key' => $api_key, 'timestamp' => $timestamp, 'hash' => $hash], $query ?? []);
+    $params = array_merge(['api_key' => $api_key, 'timestamp' => $timestamp, 'hash' => $hash,], $query);
 
     try {
         $response = Http::withOptions([
