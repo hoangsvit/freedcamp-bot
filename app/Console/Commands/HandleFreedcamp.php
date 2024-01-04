@@ -31,7 +31,7 @@ class HandleFreedcamp extends Command
             'limit' => 200,
             'offset' => 0,
             'filter' => [
-                'created_by_id' => config('app.freedcamp.created_by_id'),
+                'created_by_id' => [config('app.freedcamp.created_by_id')],
                 'created_date' => [7],
                 'status_id' => [9683]
             ],
