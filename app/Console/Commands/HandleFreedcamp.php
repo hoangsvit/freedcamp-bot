@@ -44,14 +44,14 @@ class HandleFreedcamp extends Command
             $tasks = $response['data']['tasks'];
 
             foreach ($tasks as $task) {
-                if (!Str::of($task['title'])->startsWith('#')) {
-
+                if (!Str::startsWith($task['title'], '#')) {
                     $id = $task['id'];
                     $title = "#{$id} - {$task['title']}";
+                    $url = $task['url'];
 
-                    $this->info("Processing task {$title} - {$task['url']}");
+                    $this->info("Processing task {$title} - {$url}");
 
-                    sendFreedcampRequest([], 'tasks/' . $id, 'post', ['title' => $title]);
+                    sendFreedcampRequest([], "tasks/{$id}", 'post', ['title' => $title]);
                 }
             }
         }
