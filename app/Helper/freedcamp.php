@@ -5,11 +5,9 @@ use Carbon\Carbon;
 
 function sendFreedcampRequest($query, $path, $method = 'get', $data = [])
 {
-    $config = config('freedcamp');
-
-    $host = $config['api_url'];
-    $apiKey = $config['api_key'];
-    $apiSecret = $config['api_secret'];
+    $host = config('app.freedcamp.api_url');
+    $apiKey = config('app.freedcamp.api_key');
+    $apiSecret = config('app.freedcamp.api_secret');
     $timestamp = Carbon::now()->timestamp;
     $hash = hash_hmac('sha1', $apiKey . $timestamp, $apiSecret);
 
