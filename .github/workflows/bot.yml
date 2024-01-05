@@ -15,7 +15,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: "8.2"
-          extensions: curl, mbstring, xml
+          #extensions: curl, mbstring, xml
           coverage: none
 
       - name: Run composer install
@@ -28,7 +28,6 @@ jobs:
 
       - name: "Create env file"
         run: |
-          touch .env
           echo FREEDCAMP_API_KEY="${{ secrets.FREEDCAMP_API_KEY }}" >> .env
           echo FREEDCAMP_API_SECRET="${{ secrets.FREEDCAMP_API_SECRET }}" >> .env
           echo FREEDCAMP_CREATED_BY_ID="${{ secrets.FREEDCAMP_CREATED_BY_ID }}" >> .env
