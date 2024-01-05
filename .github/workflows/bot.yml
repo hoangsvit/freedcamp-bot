@@ -7,7 +7,7 @@ on:
       - "main"
 jobs:
   make-bot:
-    name: Install
+    name: Install Laravel (PHP ${{ matrix.php-versions }}) and run freedcamp
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
