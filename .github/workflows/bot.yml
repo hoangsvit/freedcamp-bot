@@ -37,5 +37,5 @@ jobs:
           echo FREEDCAMP_API_SECRET="${{ secrets.FREEDCAMP_API_SECRET }}" >> .env
           echo FREEDCAMP_CREATED_BY_ID="${{ secrets.FREEDCAMP_CREATED_BY_ID }}" >> .env
 
-      - name: Run freedcamp
+      - name: Run handle freedcamp
         run: php artisan handle:freedcamp
