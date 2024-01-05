@@ -8,15 +8,15 @@ function sendFreedcampRequest($query, $path, $method = 'get', $data = [])
     $config = config('freedcamp');
 
     $host = $config['api_url'];
-    $api_key = $config['api_key'];
-    $api_secret = $config['api_secret'];
+    $apiKey = $config['api_key'];
+    $apiSecret = $config['api_secret'];
     $timestamp = Carbon::now()->timestamp;
-    $hash = hash_hmac('sha1', $api_key . $timestamp, $api_secret);
+    $hash = hash_hmac('sha1', $apiKey . $timestamp, $apiSecret);
 
     $response = Http::withOptions([
         'headers' => ['Accept' => 'application/json'],
         'query' => array_merge($query, [
-            'api_key' => $api_key,
+            'api_key' => $apiKey,
             'timestamp' => $timestamp,
             'hash' => $hash,
         ]),
@@ -24,9 +24,9 @@ function sendFreedcampRequest($query, $path, $method = 'get', $data = [])
 
     $response = $method === 'get' ? $response->get("{$host}{$path}") : $response->post("{$host}{$path}", $data);
 
-    $json_data = $response->json();
-    if (isset($json_data['data'])) {
-        return $json_data;
+    $jsonData = $response->json();
+    if (isset($jsonData['data'])) {
+        return $jsonData;
     }
 
     return null;
