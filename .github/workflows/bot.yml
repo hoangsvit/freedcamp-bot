@@ -17,6 +17,12 @@ jobs:
           php-version: "8.2"
           coverage: none
 
+      - name: Cache Composer dependencies
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
+
       - name: Run composer install
         run: composer install -n --prefer-dist
 
