@@ -1,4 +1,4 @@
-name: Freedcamp Bot (PHP ${{ steps.setup-php.outputs.php-version }})
+name: Freedcamp Bot
 on:
   schedule:
     - cron: "*/5 * * * *"
@@ -12,15 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Setup PHP
-        id: setup-php
         uses: shivammathur/setup-php@v2
         with:
           php-version: "8.2"
           coverage: none
-
-      - name: Get PHP Version
-        run: |
-          php -v | grep -oP 'PHP \K[0-9]+\.[0-9]+\.[0-9]+'
 
       - name: Run composer install
         run: composer install -n --prefer-dist
