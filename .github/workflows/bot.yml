@@ -44,4 +44,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          COMMIT_MESSAGE: "🔥Update README.md by BOT"
           TIMEZONE: "Asia/Ho_Chi_Minh"
