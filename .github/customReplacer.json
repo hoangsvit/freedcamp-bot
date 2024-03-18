@@ -1,0 +1,7 @@
+[
+  {
+    "search": "{date}",
+    "replace": "DATETIME",
+    "eval": true
+  }
+]

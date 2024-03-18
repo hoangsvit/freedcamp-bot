@@ -12,7 +12,7 @@ Automatically assign an ID before the task title based on Github Action.
 
 ## History
 
-- Last updated at:
+- Last updated at: {date}
 
 ## License
 

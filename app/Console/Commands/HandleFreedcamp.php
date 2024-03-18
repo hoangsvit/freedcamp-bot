@@ -4,7 +4,6 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
-use App\Jobs\FreedcampJob;
 
 class HandleFreedcamp extends Command
 {
