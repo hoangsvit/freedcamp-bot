@@ -41,7 +41,7 @@ jobs:
       - name: Run handle freedcamp
         run: php artisan handle:freedcamp
 
-      - uses: Readme-Workflows/readme-replacer@v1.0.1
+      - uses: ePlus-DEV/readme-replacer@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
