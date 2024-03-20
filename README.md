@@ -10,9 +10,8 @@ Automatically assign an ID before the task title based on Github Action.
 - Docker
 - Github Action
 
-## History
-
-- Last updated at: Monday, March 18th, 2024, 10:49:06 AM
+> [!NOTE]  
+> History last updated on Monday, March 18th, 2024, 10:49:06 AM
 
 ## License
 
